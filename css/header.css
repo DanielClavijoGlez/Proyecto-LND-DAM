@@ -1,0 +1,208 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  background-color: var(--header-color);
+  padding: 0.75rem 0.5rem;
+  margin-bottom: 3rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 95px;
+    left: 0;
+    right: 0;
+    width: 95%;
+    margin: 0 auto;
+    z-index: -1;
+    border-bottom: 2px solid var(--secondary-light-color);
+  }
+
+  .page-info {
+    height: 50px;
+    min-width: 199px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .logo {
+      height: 100%;
+    }
+
+    .page-name,
+    .strong {
+      color: var(--font-color-logo);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+
+      .strong {
+        color: var(--font-color-light);
+        text-shadow:
+          1.25px 0 currentColor,
+          -1.25px 0 currentColor;
+      }
+    }
+  }
+
+  .header-nav {
+    .header-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .header-element {
+        height: 100%;
+        padding: 0 0.5rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.5s ease;
+
+        &:hover {
+          background-color: var(--secondary-light-color);
+          border-radius: 10px;
+
+          .header-link {
+            color: var(--font-color-logo);
+          }
+        }
+
+        .header-link {
+          text-decoration: none;
+          color: var(--font-color-light);
+          font-weight: 900;
+          font-size: clamp(1rem, 2.5vw, 1.5rem);
+        }
+      }
+    }
+  }
+
+  .session-menu {
+    display: flex;
+    align-items: center;
+
+    .session-menu-icons,
+    #toggle-session-menu {
+      display: none;
+    }
+
+    .session-menu-icons {
+      font-size: 1.5rem;
+      color: var(--font-color-light);
+      cursor: pointer;
+    }
+
+    .session-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .btn {
+        text-decoration: none;
+        color: var(--font-color-logo);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 1rem;
+        border: 1px solid var(--font-color-logo);
+        border-radius: 4px;
+        padding: 0.6rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: var(--logo-color);
+          color: var(--font-color-light);
+        }
+      }
+
+      .btn-register {
+        background-color: var(--secondary-light-color);
+
+        .fa-plus {
+          margin-left: -5px;
+          font-size: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (width < 626px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    &::after {
+      top: 205px;
+      left: 0;
+      right: 0;
+    }
+
+    .header-element {
+      min-height: 30px;
+    }
+  }
+}
+
+@media screen and (625px < width < 980px) {
+  .session-menu {
+    position: relative;
+
+    .session-menu-icons {
+      display: flex !important;
+      flex-direction: column;
+      margin-right: 0.5rem;
+      transform: translateY(25%);
+      align-items: center;
+      transition: all 0.1s ease;
+
+      .fa-solid {
+        transition: opacity 0.1s ease;
+      }
+
+      .fa-user {
+        color: var(--logo-color);
+      }
+
+      .fa-x {
+        opacity: 0;
+      }
+    }
+
+    .session-buttons {
+      flex-direction: column;
+      background-color: var(--header-color);
+      border: 1px solid var(--logo-color);
+      padding: 1rem;
+      border-radius: 5px;
+      position: absolute;
+      opacity: 0;
+      top: 40px;
+      left: -110px;
+      transition: transform 0.2s ease;
+    }
+
+    &:has(#toggle-session-menu:checked) {
+      .session-menu-icons {
+        transform: translateY(-25%);
+
+        .fa-user {
+          opacity: 0;
+        }
+
+        .fa-x {
+          opacity: 1;
+        }
+      }
+
+      .session-buttons {
+        transform: translateY(10%);
+        opacity: 1;
+      }
+    }
+  }
+}

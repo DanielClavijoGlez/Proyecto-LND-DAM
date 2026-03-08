@@ -1,0 +1,48 @@
+:root {
+  --main-color: rgb(102, 23, 23);
+  --secondary-dark-color: black;
+  --secondary-light-color: burlywood;
+  --logo-color: #E38627;
+
+  --header-color: darkred;
+
+  --font-color-light: white;
+  --font-color-medium: burlywood;
+  --font-color-dark: brown;
+  --font-color-logo: #E38627;
+  --font-crossed-out: red;
+
+  --footer-color: brown;
+  --footer-icon-color: rosybrown;
+
+  --social-media-wheel-gradient: linear-gradient(45deg, burlywood, #fcb045);
+  --invalid-input-backgroundcolor: rgb(255, 0, 0,.4);
+  --invalid-input-color: rgb(255, 0, 0);
+  --valid-input-backgroundcolor: white;
+  --valid-input-color: #E38627;
+  --conditions-link-color: #483BFF;
+
+  --facebook-color: #3b5998;
+  --instagram-gradient: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
+  --instagram-color: #D6019C;
+  --x-color: #00acee;
+  --linkedin-color: #0e76a8;
+
+  --black: black;
+  --yellow: darkorange;
+  --red: darkred;
+  --gray: lightgray;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: "poppins", sans-serif;
+
+  scrollbar-color:  var(--logo-color) var(--main-color);
+}

@@ -1,0 +1,105 @@
+@keyframes slideMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.main {
+
+  .slider {
+    width: 90%;
+    height: 55vh;
+    min-height: 452px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    background-color: var(--main-color);
+    position: relative;
+
+    .slides {
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+      &:hover {
+        .sneaker-slide {
+          animation-play-state: paused;
+        }
+      }
+
+      .sneaker-slide {
+        display: flex;
+        align-items: center;
+        min-width: 100%;
+        animation: slideMove 15s linear infinite;
+
+        .sneaker-foto {
+          display: block;
+          width: 50%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .sneaker-info {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+          padding: 0 1.5rem;
+
+          .sneaker-name {
+            font-size: 2rem;
+            color: var(--font-color-logo);
+          }
+
+          .short-description {
+            font-size: 1.1rem;
+            color: var(--font-color-medium);
+          }
+
+          .extended-description {
+            font-size: 0.8rem;
+            color: var(--font-color-light);
+          }
+        }
+      }
+    }
+
+    .arrows {
+      .fa-solid {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        background-color: var(--logo-color);
+        border-radius: 50%;
+        padding: .6rem;
+        opacity: .7;
+        color: var(--font-color-light);
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: opacity .3s ease;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .fa-arrow-left {
+        left: 10px;
+      }
+
+      .fa-arrow-right {
+        right: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (width < 800px) {
+  .extended-description {
+    display: none;
+  }
+}

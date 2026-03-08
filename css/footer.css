@@ -1,0 +1,119 @@
+.footer {
+  display: flex;
+  gap: 10px;
+  background-color: var(--footer-color);
+  width: 100%;
+  padding: 1.5rem 1rem;
+
+  .footer-links {
+    margin: 0 auto;
+    width: 20%;
+    list-style: none;
+
+    .footer-element:has(> .footer-section-title)::after {
+      content: '';
+      display: block;
+      width: 100%;
+      border-bottom: 2px solid var(--main-color);
+      margin: 0.25rem 0 0.75rem 0;
+    }
+
+    .footer-element {
+      margin-bottom: 0.5rem;
+
+      .footer-section-title {
+        font-size: 1.15rem;
+        color: var(--font-color-light);
+      }
+
+      .footer-link {
+        font-size: 1rem;
+        text-decoration: none;
+        color: var(--font-color-light);
+      }
+    }
+  }
+
+  .company-links {
+    min-width: 131px;
+  }
+
+  .social-media-links {
+    display: flex;
+    flex-wrap: wrap;
+    height: min-content;
+    min-width: 175px;
+
+    .footer-element:first-of-type {
+      width: 100%;
+    }
+
+    .footer-element:not(:first-of-type) {
+      margin-right: 0.5rem;
+      background-color: var(--footer-icon-color);
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color .2s linear;
+    }
+
+    .footer-element:not(:first-of-type):has(.fa-instagram) {
+      position: relative;
+      z-index: 0;
+    }
+
+    .footer-element:not(:first-of-type):has(.fa-instagram)::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--instagram-gradient);
+      opacity: 0;
+      transition: opacity 0.2s linear;
+    }
+
+    .footer-element:not(:first-of-type):has(.fa-facebook):hover {
+      background-color: var(--facebook-color);
+    }
+
+    .footer-element:not(:first-of-type):has(.fa-instagram):hover::after {
+      opacity: 1;
+    }
+
+    .footer-element:not(:first-of-type):has(.fa-x):hover {
+      background-color: var(--x-color);
+    }
+
+    .footer-element:not(:first-of-type):has(.fa-linkedin):hover {
+      background-color: var(--linkedin-color);
+    }
+  }
+}
+
+@media screen and (width < 626px) {
+  .footer {
+    flex-direction: column;
+
+    .footer-links {
+      width: 80%;
+      margin-top: 1rem;
+
+      .footer-element > * {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .social-media-links {
+      justify-content: center;
+    }
+  }
+}

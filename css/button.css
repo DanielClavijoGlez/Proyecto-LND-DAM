@@ -1,0 +1,33 @@
+@keyframes buttonAnimation {
+  0% {
+    box-shadow: 0 0 20px var(--secondary-dark-color);
+    transform: scale(105%);
+  }
+  50% {
+    box-shadow: none;
+    transform: scale(100%);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--secondary-dark-color);
+    transform: scale(105%);
+  }
+}
+
+.regular-btn {
+  background-color: var(--secondary-dark-color);
+  border: none;
+  color: var(--font-color-light);
+  width: max-content;
+  margin: 0 auto;
+  padding: 1rem;
+  cursor: pointer;
+
+  i {
+    margin-right: .5rem;
+  }
+}
+
+.regular-btn:hover {
+  color: var(--font-color-logo);
+  animation: buttonAnimation 0.75s linear infinite;
+}
